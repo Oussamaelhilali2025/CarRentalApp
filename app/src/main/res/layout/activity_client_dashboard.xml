@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Theme.LocationVoiture.AppBarOverlay"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Bienvenue + profil -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#E3F2FD">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:id="@+id/tv_welcome"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Bienvenue !" android:textSize="20sp" android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"/>
+                    <TextView android:id="@+id/tv_nom_complet"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                    <TextView android:id="@+id/tv_email"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="13sp" android:textColor="@color/text_secondary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Stats rapides -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="20dp">
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginEnd="4dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🚗" android:textSize="26sp"/>
+                        <TextView android:id="@+id/tv_voitures_dispo"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp" android:textStyle="bold"
+                            android:textColor="@color/green"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Disponibles" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginStart="4dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="📋" android:textSize="26sp"/>
+                        <TextView android:id="@+id/tv_mes_reservations"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp" android:textStyle="bold"
+                            android:textColor="@color/orange"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="En cours" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Section titre -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="MES SERVICES" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:layout_marginBottom="8dp"/>
+
+            <!-- Voitures disponibles -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_voitures_dispo"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="🚗" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Voir les voitures" android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Catalogue des véhicules disponibles" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Nouvelle réservation -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_nouvelle_reservation"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" app:cardCornerRadius="12dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#E8F5E9">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="➕" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Nouvelle réservation" android:textSize="15sp" android:textStyle="bold"
+                            android:textColor="@color/green"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Réserver une voiture maintenant" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/green"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Mes réservations -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_mes_reservations"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="📋" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mes réservations" android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Suivi et annulation de mes locations" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Paiement en ligne -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_paiement_en_ligne"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="💳" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Payer en ligne" android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Carte bancaire · Virement · PayPal" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Géolocalisation -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_geolocalisation"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="📍" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Localiser les voitures" android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Carte interactive OpenStreetMap" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Historique paiements -->
+            <androidx.cardview.widget.CardView android:id="@+id/card_historique_paiements"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="💰" android:textSize="24sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mes paiements" android:textSize="15sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Historique de mes transactions" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="›" android:textSize="22sp" android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

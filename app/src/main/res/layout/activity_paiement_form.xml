@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Theme.LocationVoiture.AppBarOverlay"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp" app:cardBackgroundColor="#E3F2FD">
+                <TextView android:id="@+id/tv_info_reservation"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="16dp" android:textSize="14sp" android:lineSpacingExtra="4dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Montant (MAD)" android:layout_marginBottom="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_montant" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Date du paiement" android:textStyle="bold" android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+                <TextView android:id="@+id/tv_date_paiement" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:textSize="16sp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_date_paiement" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Changer"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save" android:layout_width="match_parent"
+                android:layout_height="56dp" android:text="Enregistrer le paiement"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
